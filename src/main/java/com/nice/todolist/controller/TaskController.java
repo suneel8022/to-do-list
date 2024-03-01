@@ -3,6 +3,7 @@ package com.nice.todolist.controller;
 
 import com.nice.todolist.dao.TasksDao;
 import com.nice.todolist.entity.Task;
+import com.nice.todolist.service.TaskService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,15 +14,18 @@ import java.util.List;
 @RequestMapping("/api")
 public class TaskController {
 
-    private TasksDao tasksDao;
+    private TaskService taskService;
 
-    public TaskController(TasksDao theTasksDao) {
-        tasksDao = theTasksDao;
+    public TaskController(TaskService theTaskService) {
+        taskService = theTaskService;
     }
 
-    @GetMapping("/tasks")
+    @GetMapping("tasks")
     public List<Task> getTasks() {
-        return tasksDao.getTasks();
+        return taskService.getTasks();
     }
+
+
+
 }
 
