@@ -10,4 +10,8 @@ public interface TaskService {
 
     Task addTask(Task task);
 
+    Task getTask(int theId);
+
+
+
 }

@@ -10,4 +10,6 @@ public interface TasksDao {
 
     Task addTask(Task task);
 
+    Task getTask(int theId);
+
 }

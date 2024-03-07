@@ -34,4 +34,12 @@ public class TasksDaoImpl implements TasksDao {
         Task newTask = entityManager.merge(task);
         return newTask;
     }
+
+    @Override
+    public Task getTask(int theId) {
+        Task task =  entityManager.find(Task.class , theId);
+        return task;
+    }
+
+
 }

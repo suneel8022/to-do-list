@@ -24,6 +24,11 @@ public class TaskController {
         return taskService.getTasks();
     }
 
+    @GetMapping("/tasks/{id}")
+    public Task getTask(@PathVariable int id){
+        return taskService.getTask(id);
+    }
+
 
     @PostMapping("/tasks")
     public Task addTask(@RequestBody Task theTask) {

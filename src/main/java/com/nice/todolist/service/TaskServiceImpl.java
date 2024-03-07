@@ -30,4 +30,10 @@ public class TaskServiceImpl implements TaskService {
     public Task addTask(Task task) {
             return tasksDao.addTask(task);
     }
+
+
+    @Override
+    public Task getTask(int theId) {
+        return tasksDao.getTask(theId);
+    }
 }
