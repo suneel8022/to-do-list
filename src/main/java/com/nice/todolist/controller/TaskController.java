@@ -49,6 +49,19 @@ public class TaskController {
     }
 
 
+    @DeleteMapping("/tasks/{theId}")
+    public String deleteTask(@PathVariable int theId){
 
+        Task theTask = taskService.getTask(theId);
+
+        if(theTask == null){
+            throw new RuntimeException("Task id not found - "  + theId);
+        }
+
+        taskService.deleteTaskById(theId);
+
+        return "deleted employee id: " + theId;
+
+    }
 }
 
