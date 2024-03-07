@@ -43,4 +43,13 @@ public class Task {
     public void setTasks(String tasks) {
         this.tasks = tasks;
     }
+
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", tasks='" + tasks + '\'' +
+                '}';
+    }
 }

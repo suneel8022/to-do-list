@@ -2,6 +2,7 @@ package com.nice.todolist.service;
 
 import com.nice.todolist.dao.TasksDao;
 import com.nice.todolist.entity.Task;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,5 +23,11 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public List<Task> getTasks() {
             return tasksDao.getTasks();
+    }
+
+    @Override
+    @Transactional
+    public Task addTask(Task task) {
+            return tasksDao.addTask(task);
     }
 }

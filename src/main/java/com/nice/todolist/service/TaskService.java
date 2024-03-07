@@ -7,4 +7,7 @@ import java.util.List;
 public interface TaskService {
 
     List<Task> getTasks();
+
+    Task addTask(Task task);
+
 }
