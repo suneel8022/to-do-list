@@ -12,4 +12,8 @@ public interface TasksDao {
 
     Task getTask(int theId);
 
+    Task updateTask(Task task);
+
+
+
 }

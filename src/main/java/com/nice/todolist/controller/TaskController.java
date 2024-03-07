@@ -42,6 +42,13 @@ public class TaskController {
     }
 
 
+    @PutMapping("/tasks")
+    public Task updateTask( @RequestBody Task theTask) {
+        Task updatedTask = taskService.addTask(theTask);
+        return updatedTask ;
+    }
+
+
 
 }
 

@@ -36,4 +36,11 @@ public class TaskServiceImpl implements TaskService {
     public Task getTask(int theId) {
         return tasksDao.getTask(theId);
     }
+
+    @Override
+    @Transactional
+    public Task updateTask(Task task) {
+        return tasksDao.updateTask(task);
+    }
+
 }
