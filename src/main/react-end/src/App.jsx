@@ -25,14 +25,25 @@ function App() {
     };
 
     return (
-        <div className="container">
-            <h1>Todo List</h1>
-            <TodoForm onTaskAdded={handleTaskAdded} />
-            {tasks.map((todo) => (
-                <div key={todo.id}>
-                    <TodoItem todo={todo} />
+        <div className=" bg-[#1e3555] min-h-screen py-8">
+            <div className="w-full bg-[#13294a] max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
+                <h1 className="text-2xl font-bold text-center mb-8 mt-2">ToDo App</h1>
+
+
+                <div className="mb-4">
+                    <TodoForm onTaskAdded={handleTaskAdded}/>
                 </div>
-            ))}
+
+                    <div className={"flex flex-wrap gap-y-3"}>
+
+                        {tasks.map((todo) => (
+                            <div key={todo.id}
+                            className={'w-full'}>
+                                <TodoItem todo={todo}/>
+                            </div>
+                        ))}
+                    </div>
+            </div>
         </div>
     );
 }
