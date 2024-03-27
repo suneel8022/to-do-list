@@ -11,7 +11,7 @@ public class Task {
     @Column(name="id")
     private int id;
 
-    @Column(name="tasks")
+    @Column(name="task")
     private String tasks;
 
     // no arg constructor
