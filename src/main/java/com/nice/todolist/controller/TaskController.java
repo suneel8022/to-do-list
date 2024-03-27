@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/api")
-@CrossOrigin("http://localhost:5173")
 public class TaskController {
 
     private TaskService taskService;
