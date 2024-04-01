@@ -20,9 +20,19 @@ function App() {
         }
     };
 
+
+    // display new task along with previous tasks
     const handleTaskAdded = (newTask) => {
         setTasks([...tasks, newTask]); // Update state with new task
     };
+
+    const handleTaskUpdated = (updatedTask) => {
+        setTasks(tasks.map(task => (task.id === updatedTask.id ? updatedTask : task)));
+    };
+
+    const handleTasksDeleted = (taskId) => {
+        setTasks(tasks.filter(task => task.id !== taskId))
+    }
 
     return (
         <div className=" bg-[#1e3555] min-h-screen py-8">
@@ -39,7 +49,9 @@ function App() {
                         {tasks.map((todo) => (
                             <div key={todo.id}
                             className={'w-full'}>
-                                <TodoItem todo={todo}/>
+                                <TodoItem todo={todo}
+                                onUpdateTodo={handleTaskUpdated}
+                                onDeleteTodo={handleTasksDeleted}/>
                             </div>
                         ))}
                     </div>

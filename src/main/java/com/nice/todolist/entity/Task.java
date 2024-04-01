@@ -14,6 +14,9 @@ public class Task {
     @Column(name="task")
     private String tasks;
 
+    @Column(name = "completed")
+    private boolean completed ;
+
     // no arg constructor
 
     public Task() {
@@ -24,6 +27,15 @@ public class Task {
 
     public Task(String tasks) {
         this.tasks = tasks;
+    }
+
+    public Task(boolean completed) {
+        this.completed = completed;
+    }
+
+    public Task(String tasks, boolean completed) {
+        this.tasks = tasks;
+        this.completed = completed;
     }
 
     // geters and setters
@@ -45,11 +57,20 @@ public class Task {
     }
 
 
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
+
     @Override
     public String toString() {
         return "Task{" +
                 "id=" + id +
                 ", tasks='" + tasks + '\'' +
+                ", completed=" + completed +
                 '}';
     }
 }
