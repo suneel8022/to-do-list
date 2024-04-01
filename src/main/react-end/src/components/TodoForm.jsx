@@ -8,13 +8,18 @@ function TodoForm({ onTaskAdded }) {
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:8080/api/tasks', { tasks: task });
-            console.log(response.data)
+            console.log(response.data) // log to the console
             onTaskAdded(response.data);
             setTask('');
         } catch (error) {
             console.error('Error adding task:', error);
         }
     };
+
+
+
+
+
 
     return (
         <form onSubmit={handleSubmit} className="flex">

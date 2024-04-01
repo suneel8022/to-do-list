@@ -45,6 +45,7 @@ public class TasksDaoImpl implements TasksDao {
     @Override
     public Task updateTask(Task task) {
         Task theTask = entityManager.merge(task);
+        entityManager.flush();
         return theTask;
     }
 

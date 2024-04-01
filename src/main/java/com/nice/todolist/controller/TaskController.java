@@ -43,9 +43,17 @@ public class TaskController {
     }
 
 
-    @PutMapping("/tasks")
+    /*@PutMapping("/tasks")
     public Task updateTask( @RequestBody Task theTask) {
         Task updatedTask = taskService.addTask(theTask);
+        return updatedTask ;
+    }
+     */
+
+    @PutMapping("/tasks/{theId}")
+    public Task updateTask( @PathVariable int theId, @RequestBody Task theTask) {
+        theTask.setId(theId);
+        Task updatedTask = taskService.updateTask(theTask);
         return updatedTask ;
     }
 
