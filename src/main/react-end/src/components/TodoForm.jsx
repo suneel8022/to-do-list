@@ -17,10 +17,6 @@ function TodoForm({ onTaskAdded }) {
     };
 
 
-
-
-
-
     return (
         <form onSubmit={handleSubmit} className="flex">
             <input
@@ -28,7 +24,7 @@ function TodoForm({ onTaskAdded }) {
                 value={task}
                 className='w-full border border-black/10 rounded-l-lg px-3 outline-none duration-150 bg-white/20 py-1.5'
                 onChange={(e) => setTask(e.target.value)}
-                placeholder="Enter task.."
+                placeholder="Write a Task..."
             />
             <button type="submit"
                     className='rounded-r-lg px-3 py-1 bg-cyan-500 text-white shrink-0 hover:bg-cyan-600'

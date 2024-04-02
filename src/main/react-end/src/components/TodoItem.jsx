@@ -4,6 +4,7 @@ import axios from "axios";
 function TodoItem({todo,onUpdateTodo, onDeleteTodo}) {
     // const [tasks, setTasks] = useState([]);
 
+
     const [editMode, setEditMode] = useState(false);
     const [taskMsg, setTaskMsg] = useState(todo.tasks);
     const [isChecked, setIsChecked] = useState(todo.completed)
@@ -37,15 +38,6 @@ function TodoItem({todo,onUpdateTodo, onDeleteTodo}) {
         setEditMode(prevEditMode => !prevEditMode)
     }
 
-     // const toggleCompleted = () =>{
-     //
-     // }
-    //
-    // const handleInputChange = (e) => {
-    //     setUpdatedTask(e.target.value);
-    // }
-
-
     const handleUpdateTodo = async () => {
         try {
             const response = await axios.put(`http://localhost:8080/api/tasks/${todo.id}`, { tasks: taskMsg,
@@ -77,16 +69,17 @@ function TodoItem({todo,onUpdateTodo, onDeleteTodo}) {
 
     return (
         <div
-            className={`flex-border space-y-4 border-black/10 rounded-lg px-3 py-1.5 gap-x-3 shadow-sm shadow-white/50 duration-300 text-black`}>
+            className={`border flex-border space-y-4 border-black/10 rounded-lg px-3 py-1.5 gap-x-3 shadow-sm shadow-white/50 duration-300 space-x-1 ..." `}>
 
             <input type="checkbox"
                    className='cursor-pointer'
                    checked={isChecked}
                    onChange={handleCheckBox}
+                   title={isChecked ? "Uncheck the Task" : "Mark as Completed"}
             />
 
             <input type="text"
-                   className={`border outline-none w-full bg-transparent rounded-lg text-cyan-300
+                   className={` outline-none w-10/12 bg-transparent rounded-lg text-fuchsia-400 text-center font-semibold font-sans
             ${setEditMode ? "border-black/10 px-2" : "border-transparent"} {${todo.completed ? " line-through" : ""}`}
                    onChange={(e) => setTaskMsg(e.target.value)}
                    value={taskMsg}
@@ -94,14 +87,17 @@ function TodoItem({todo,onUpdateTodo, onDeleteTodo}) {
             />
 
             <button
-                className='inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center bg-gray-50 hover:bg-gray-100 shrink-0 disabled:opacity-50'
-                onClick= { !editMode ? handleToggleEditMode : handleUpdateTodo}
+                className={`inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center bg-green-700 hover:bg-green-500 shrink-0 disabled:opacity-50
+                ${todo.completed ? "cursor-not-allowed" : "cursor-pointer"}`}
+                onClick={!editMode ? handleToggleEditMode : handleUpdateTodo}
                 disabled={todo.completed}
-            >{editMode ? "📁" : "✏️"}</button>
+                title={editMode ? "Save Task" : "Edit Task"}
+            >{editMode ? "💾" : "✏️"}</button>
 
             <button
-                className='inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center bg-gray-50 hover:bg-gray-100 shrink-0'
+                className='inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center bg-red-900 hover:bg-red-800 shrink-0'
                 onClick={deleteTodo}
+                title={"Delete Task"}
             >❌
             </button>
 
