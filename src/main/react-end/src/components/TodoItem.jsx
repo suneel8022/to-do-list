@@ -79,7 +79,7 @@ function TodoItem({todo,onUpdateTodo, onDeleteTodo}) {
             />
 
             <input type="text"
-                   className={` outline-none w-10/12 bg-transparent rounded-lg text-fuchsia-400 text-center font-semibold font-sans
+                   className={` outline-none w-10/12 bg-transparent rounded-lg text-cyan-400 text-center font-semibold font-sans
             ${setEditMode ? "border-black/10 px-2" : "border-transparent"} {${todo.completed ? " line-through" : ""}`}
                    onChange={(e) => setTaskMsg(e.target.value)}
                    value={taskMsg}

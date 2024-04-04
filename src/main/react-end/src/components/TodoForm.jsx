@@ -27,7 +27,7 @@ function TodoForm({ onTaskAdded }) {
                 placeholder="Write a Task..."
             />
             <button type="submit"
-                    className='rounded-r-lg px-3 py-1 bg-cyan-500 text-white shrink-0 hover:bg-cyan-600'
+                    className='rounded-r-lg px-3 py-1 bg-fuchsia-700 text-white shrink-0 hover:bg-fuchsia-600'
                 >Add</button>
         </form>
     );
