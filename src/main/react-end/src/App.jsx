@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import  {useEffect, useState} from 'react';
 import TodoItem from './components/TodoItem';
 import TodoForm from './components/TodoForm';
 import axios from "axios";
@@ -13,7 +13,8 @@ function App() {
 
     const fetchTasks = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/api/tasks');
+            console.log(`Here: ${import.meta.env.VITE_API_URL}`);
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/tasks`);
             setTasks(response.data);
         } catch (error) {
             console.error('Error fetching tasks:', error);
@@ -23,7 +24,7 @@ function App() {
 
     // display new task along with previous tasks
     const handleTaskAdded = (newTask) => {
-        setTasks([...tasks, newTask]); // Update state with new task
+        setTasks([...tasks, newTask]); // update state with new task
     };
 
     const handleTaskUpdated = (updatedTask) => {
